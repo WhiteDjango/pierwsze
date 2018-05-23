@@ -1,7 +1,9 @@
 package pl.swiebodzin.pzstiz.firstapp;
 
+import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("LIFE", "onCreate");
 
 
         super.onCreate(savedInstanceState);
@@ -46,6 +49,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                clear();
+            }
+        });
+
+    }
+
+    public void clear(){
+        textSum.setText("");
+        firstNumber.setText("");
+        lastNumber.setText("");
     }
 
     public int getSum(int number1, int number2) {
